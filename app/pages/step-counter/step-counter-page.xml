@@ -1,0 +1,113 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd"
+      navigatingTo="navigatingTo"
+      class="page">
+
+    <Page.actionBar>
+        <ActionBar title="Step Tracker" class="action-bar">
+            <NavigationButton text="Back" android.systemIcon="ic_menu_back" tap="onBackTap" />
+        </ActionBar>
+    </Page.actionBar>
+
+    <ScrollView>
+        <StackLayout class="step-container">
+
+            <!-- Header Section -->
+            <StackLayout class="step-counter-main">
+                <Label text="👟" class="step-icon-large" />
+                <Label text="{{ stepsToday }}" class="step-count-large" />
+                <Label text="Steps Today" class="step-label" />
+                <StackLayout class="progress-circle">
+                    <Label text="Count Progress" class="progress-percentage" />
+                    <Label text="Daily Goal" class="progress-goal-text" />
+                </StackLayout>
+            </StackLayout>
+
+            <!-- Progress Bar -->
+            <StackLayout class="progress-bar-container">
+                <GridLayout columns="*" rows="auto">
+                    <StackLayout col="0" class="progress-bar-bg" />
+                    <StackLayout col="0" class="progress-bar-fill" width="{{ progressWidth }}" />
+                </GridLayout>
+            </StackLayout>
+
+            <!-- Stats Section -->
+            <GridLayout columns="*, *, *" class="stats-grid-step">
+                <StackLayout col="0" class="stat-card">
+                    <Label text="🔥" class="stat-icon-step" />
+                    <Label text="{{ caloriesBurned }}" class="stat-value-step" />
+                    <Label text="Calories" class="stat-label-step" />
+                </StackLayout>
+
+                <StackLayout col="1" class="stat-card">
+                    <Label text="📏" class="stat-icon-step" />
+                    <Label text="{{ distanceKm }}" class="stat-value-step" />
+                    <Label text="Distance (km)" class="stat-label-step" />
+                </StackLayout>
+
+                <StackLayout col="2" class="stat-card">
+                    <Label text="⏱️" class="stat-icon-step" />
+                    <Label text="{{ activeMinutes }}" class="stat-value-step" />
+                    <Label text="Active Minutes" class="stat-label-step" />
+                </StackLayout>
+            </GridLayout>
+
+            <!-- Weekly Chart -->
+            <StackLayout class="chart-section">
+                <Label text="📆 Weekly Progress" class="section-heading" />
+                <ScrollView orientation="horizontal" class="chart-scroll">
+                    <GridLayout columns="auto, auto, auto, auto, auto, auto, auto" class="chart-container">
+                        <StackLayout col="0" class="chart-bar-container">
+                            <StackLayout class="chart-bar" height="{{ weekData.day1Height }}" />
+                            <Label text="{{ weekData.day1Steps }}" class="chart-value" />
+                            <Label text="Mon" class="chart-label" />
+                        </StackLayout>
+                        <StackLayout col="1" class="chart-bar-container">
+                            <StackLayout class="chart-bar" height="{{ weekData.day2Height }}" />
+                            <Label text="{{ weekData.day2Steps }}" class="chart-value" />
+                            <Label text="Tue" class="chart-label" />
+                        </StackLayout>
+                        <StackLayout col="2" class="chart-bar-container">
+                            <StackLayout class="chart-bar" height="{{ weekData.day3Height }}" />
+                            <Label text="{{ weekData.day3Steps }}" class="chart-value" />
+                            <Label text="Wed" class="chart-label" />
+                        </StackLayout>
+                        <StackLayout col="3" class="chart-bar-container">
+                            <StackLayout class="chart-bar" height="{{ weekData.day4Height }}" />
+                            <Label text="{{ weekData.day4Steps }}" class="chart-value" />
+                            <Label text="Thu" class="chart-label" />
+                        </StackLayout>
+                        <StackLayout col="4" class="chart-bar-container">
+                            <StackLayout class="chart-bar" height="{{ weekData.day5Height }}" />
+                            <Label text="{{ weekData.day5Steps }}" class="chart-value" />
+                            <Label text="Fri" class="chart-label" />
+                        </StackLayout>
+                        <StackLayout col="5" class="chart-bar-container">
+                            <StackLayout class="chart-bar" height="{{ weekData.day6Height }}" />
+                            <Label text="{{ weekData.day6Steps }}" class="chart-value" />
+                            <Label text="Sat" class="chart-label" />
+                        </StackLayout>
+                        <StackLayout col="6" class="chart-bar-container">
+                            <StackLayout class="chart-bar" height="{{ weekData.day7Height }}" />
+                            <Label text="{{ weekData.day7Steps }}" class="chart-value" />
+                            <Label text="Sun" class="chart-label" />
+                        </StackLayout>
+                    </GridLayout>
+                </ScrollView>
+            </StackLayout>
+
+            <!-- Buttons -->
+            <GridLayout columns="*, *" class="control-buttons">
+                <Button col="0" text="Start" tap="onStartTracking"
+                        class="btn-start"
+                        visibility="{{ isTracking ? 'collapsed' : 'visible' }}" />
+                <Button col="0" text="Stop" tap="onStopTracking"
+                        class="btn-stop"
+                        visibility="{{ isTracking ? 'visible' : 'collapsed' }}" />
+                <Button col="1" text="Reset" tap="onResetSteps" class="btn-reset" />
+            </GridLayout>
+
+            <!-- Status Message -->
+            <Label text="{{ statusMessage }}" class="status-message" textWrap="true" />
+        </StackLayout>
+    </ScrollView>
+</Page>

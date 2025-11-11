@@ -1,0 +1,55 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="navigatingTo" class="page">
+    <Page.actionBar>
+        <ActionBar title="AI Health Assistant" class="action-bar">
+            <NavigationButton text="Back" android.systemIcon="ic_menu_back" tap="onBackTap" />
+            <ActionItem text="Clear" android.position="actionBar" tap="onClearChat" />
+        </ActionBar>
+    </Page.actionBar>
+
+    <GridLayout rows="auto, *, auto" class="chat-container">
+        
+        <!-- Info Banner -->
+        <StackLayout row="0" class="info-banner">
+            <Label text="🤖 AI Health Assistant" class="info-banner-title" />
+            <Label text="Get health advice and information. Not a substitute for professional medical advice." 
+                   class="info-banner-text" textWrap="true" />
+        </StackLayout>
+
+        <!-- Chat Messages -->
+        <ScrollView row="1" class="chat-messages-scroll">
+            <StackLayout class="chat-messages">
+                <Repeater items="{{ messages }}">
+                    <Repeater.itemTemplate>
+                        <StackLayout class="{{ isUser ? 'message-user' : 'message-ai' }}">
+                            <Label text="{{ isUser ? '👤' : '🤖' }}" class="message-icon" />
+                            <Label text="{{ text }}" class="message-text" textWrap="true" />
+                            <Label text="{{ time }}" class="message-time" />
+                        </StackLayout>
+                    </Repeater.itemTemplate>
+                </Repeater>
+
+                <!-- Loading Indicator -->
+                <StackLayout class="loading-container" visibility="{{ isLoading ? 'visible' : 'collapsed' }}">
+                    <ActivityIndicator busy="{{ isLoading }}" class="loading-spinner" />
+                    <Label text="AI is thinking..." class="loading-text" />
+                </StackLayout>
+
+                <!-- Empty State -->
+                <StackLayout class="empty-state" visibility="{{ isEmpty ? 'visible' : 'collapsed' }}">
+                    <Label text="💬" class="empty-icon" />
+                    <Label text="Start a conversation" class="empty-title" />
+                    <Label text="Ask me about symptoms, medications, healthy habits, or general health questions." 
+                           class="empty-subtitle" textWrap="true" />
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+
+        <!-- Input Section -->
+        <GridLayout row="2" columns="*, auto" class="input-section">
+            <TextField col="0" hint="Ask a health question..." text="{{ messageInput }}" 
+                      class="message-input" returnKeyType="send" />
+            <Button col="1" text="Send" tap="onSendMessage" 
+                   class="btn-send" isEnabled="{{ !isLoading }}" />
+        </GridLayout>
+    </GridLayout>
+</Page>

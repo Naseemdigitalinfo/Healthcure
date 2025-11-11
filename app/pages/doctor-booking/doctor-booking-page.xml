@@ -1,0 +1,81 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="navigatingTo" class="page">
+    <Page.actionBar>
+        <ActionBar title="Book a Doctor" class="action-bar">
+            <NavigationButton text="Back" android.systemIcon="ic_menu_back" tap="onBackTap" />
+        </ActionBar>
+    </Page.actionBar>
+
+    <ScrollView>
+        <StackLayout class="booking-container">
+            
+            <!-- Select Doctor Section -->
+            <StackLayout class="booking-section">
+                <Label text="Select Doctor" class="section-heading" />
+                <ListPicker items="{{ doctors }}" selectedIndex="{{ selectedDoctorIndex }}" 
+                           selectedIndexChange="onDoctorSelected" class="picker" />
+                
+                <!-- Doctor Profile Card -->
+                <StackLayout class="doctor-profile-card" visibility="{{ isDoctorSelected ? 'visible' : 'collapsed' }}">
+                    <Label text="{{ selectedDoctor.icon }}" class="doctor-icon" />
+                    <Label text="{{ selectedDoctor.name }}" class="doctor-name" textWrap="true" />
+                    <Label text="{{ selectedDoctor.specialty }}" class="doctor-specialty" textWrap="true" />
+                    <Label text="{{ selectedDoctor.experience }}" class="doctor-experience" textWrap="true" />
+                    <Label text="⭐ {{ selectedDoctor.rating }}" class="doctor-rating" />
+                </StackLayout>
+            </StackLayout>
+
+            <!-- Select Specialty Section -->
+            <StackLayout class="booking-section">
+                <Label text="Select Specialty" class="section-heading" />
+                <ListPicker items="{{ specialties }}" selectedIndex="{{ selectedSpecialtyIndex }}" 
+                           selectedIndexChange="onSpecialtySelected" class="picker" />
+            </StackLayout>
+
+            <!-- Patient Details Section -->
+            <StackLayout class="booking-section">
+                <Label text="Patient Details" class="section-heading" />
+                
+                <StackLayout class="input-container">
+                    <Label text="Full Name" class="input-label" />
+                    <TextField hint="Enter your full name" text="{{ patientName }}" 
+                              class="input-field" />
+                </StackLayout>
+
+                <StackLayout class="input-container">
+                    <Label text="Age" class="input-label" />
+                    <TextField hint="Enter your age" text="{{ patientAge }}" 
+                              keyboardType="number" class="input-field" />
+                </StackLayout>
+
+                <StackLayout class="input-container">
+                    <Label text="Phone Number" class="input-label" />
+                    <TextField hint="Enter your phone number" text="{{ patientPhone }}" 
+                              keyboardType="phone" class="input-field" />
+                </StackLayout>
+            </StackLayout>
+
+            <!-- Date and Time Section -->
+            <StackLayout class="booking-section">
+                <Label text="Appointment Date and Time" class="section-heading" />
+                
+                <GridLayout columns="*, *" class="datetime-grid">
+                    <StackLayout col="0" class="datetime-item" tap="onDateTap">
+                        <Label text="📅" class="datetime-icon" />
+                        <Label text="{{ selectedDate }}" class="datetime-value" textWrap="true" />
+                        <Label text="Date" class="datetime-label" />
+                    </StackLayout>
+
+                    <StackLayout col="1" class="datetime-item" tap="onTimeTap">
+                        <Label text="🕐" class="datetime-icon" />
+                        <Label text="{{ selectedTime }}" class="datetime-value" textWrap="true" />
+                        <Label text="Time" class="datetime-label" />
+                    </StackLayout>
+                </GridLayout>
+            </StackLayout>
+
+            <!-- Book Button -->
+            <Button text="Book Appointment" tap="onBookAppointment" class="btn-book" />
+
+        </StackLayout>
+    </ScrollView>
+</Page>
