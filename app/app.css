@@ -1,6 +1,604 @@
-﻿@import '@nativescript/theme/css/core.css';
-@import '@nativescript/theme/css/default.css';
+﻿/* ========================
+   Global Styles
+   ======================== */
 
-Button.-primary {
-  font-size: 18;
+.page {
+    background-color: #f5f7fa;
+}
+
+.action-bar {
+    background-color: #4CAF50;
+    color: white;
+}
+
+/* ========================
+   Home Page Styles
+   ======================== */
+
+.home-container {
+    padding: 20;
+}
+
+.header-section {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 50 20;
+    margin: -20 -20 20 -20;
+    elevation: 5;
+    android-elevation: 5;
+    
+}
+
+.header-title {
+    font-size: 28;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 8;
+}
+
+.header-subtitle {
+    font-size: 16;
+    color: rgba(255, 255, 255, 0.9);
+    text-align: center;
+}
+
+.features-grid {
+    margin: 20 0;
+}
+
+.feature-card {
+    background-color: white;
+    margin: 8;
+    padding: 20;
+    border-radius: 16;
+    elevation: 4;
+    android-elevation: 4;
+    horizontal-align: center;
+    vertical-align: center;
+}
+
+.feature-card-wide {
+    margin: 8 8 20 8;
+}
+
+.feature-icon {
+    font-size: 48;
+    text-align: center;
+    margin-bottom: 12;
+}
+
+.feature-title {
+    font-size: 18;
+    font-weight: bold;
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 6;
+}
+
+.feature-description {
+    font-size: 13;
+    color: #7f8c8d;
+    text-align: center;
+}
+
+.stats-section {
+    background-color: white;
+    padding: 20;
+    border-radius: 16;
+    elevation: 2;
+    android-elevation: 2;
+    margin-top: 10;
+}
+
+.section-title {
+    font-size: 20;
+    font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 15;
+}
+
+.stats-grid {
+    margin-top: 10;
+}
+
+.stat-item {
+    padding: 15;
+    horizontal-align: center;
+}
+
+.stat-value {
+    font-size: 24;
+    font-weight: bold;
+    color: #4CAF50;
+    text-align: center;
+}
+
+.stat-label {
+    font-size: 12;
+    color: #7f8c8d;
+    text-align: center;
+    margin-top: 5;
+}
+
+/* ========================
+   Doctor Booking Styles
+   ======================== */
+
+.booking-container {
+    padding: 20;
+}
+
+.booking-section {
+    background-color: white;
+    padding: 20;
+    margin-bottom: 15;
+    border-radius: 16;
+    elevation: 2;
+    android-elevation: 2;
+}
+
+.section-heading {
+    font-size: 18;
+    font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 15;
+}
+
+.picker {
+    margin: 10 0;
+    padding: 12;
+    background-color: #f8f9fa;
+    border-radius: 8;
+}
+
+.doctor-profile-card {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 20;
+    margin-top: 15;
+    border-radius: 12;
+}
+
+.doctor-icon {
+    font-size: 64;
+    text-align: center;
+    margin-bottom: 10;
+}
+
+.doctor-name {
+    font-size: 22;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    margin-bottom: 5;
+}
+
+.doctor-specialty {
+    font-size: 16;
+    color: rgba(255, 255, 255, 0.9);
+    text-align: center;
+    margin-bottom: 5;
+}
+
+.doctor-experience {
+    font-size: 14;
+    color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    margin-bottom: 8;
+}
+
+.doctor-rating {
+    font-size: 16;
+    color: #ffd700;
+    text-align: center;
+}
+
+.input-container {
+    margin-bottom: 15;
+}
+
+.input-label {
+    font-size: 14;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 8;
+}
+
+.input-field {
+    padding: 12;
+    background-color: #f8f9fa;
+    border-radius: 8;
+    border-width: 1;
+    border-color: #e0e0e0;
+    font-size: 15;
+}
+
+.datetime-grid {
+    margin-top: 10;
+}
+
+.datetime-item {
+    background-color: #f8f9fa;
+    padding: 15;
+    margin: 5;
+    border-radius: 12;
+    horizontal-align: center;
+}
+
+.datetime-icon {
+    font-size: 32;
+    text-align: center;
+    margin-bottom: 8;
+}
+
+.datetime-value {
+    font-size: 16;
+    font-weight: 600;
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 5;
+}
+
+.datetime-label {
+    font-size: 12;
+    color: #7f8c8d;
+    text-align: center;
+}
+
+.btn-book {
+    background-color: #4CAF50;
+    color: white;
+    font-size: 18;
+    font-weight: bold;
+    padding: 15;
+    border-radius: 12;
+    margin-top: 20;
+}
+
+/* ========================
+   Step Counter Styles
+   ======================== */
+
+.step-container {
+    padding: 20;
+}
+
+.step-counter-main {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 30 20;
+    margin: -20 -20 20 -20;
+    border-radius: 0 0 30 30;
+    horizontal-align: center;
+}
+
+.step-icon-large {
+    font-size: 72;
+    text-align: center;
+    margin-bottom: 15;
+}
+
+.step-count-large {
+    font-size: 56;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+}
+
+.step-label {
+    font-size: 18;
+    color: rgba(255, 255, 255, 0.9);
+    text-align: center;
+    margin-top: 5;
+}
+
+.progress-circle {
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 20;
+    margin-top: 20;
+    border-radius: 12;
+}
+
+.progress-percentage {
+    font-size: 32;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+}
+
+.progress-goal-text {
+    font-size: 14;
+    color: rgba(255, 255, 255, 0.9);
+    text-align: center;
+    margin-top: 5;
+}
+
+.progress-bar-container {
+    margin: 20 0;
+}
+
+.progress-bar-bg {
+    height: 12;
+    background-color: #e0e0e0;
+    border-radius: 6;
+}
+
+.progress-bar-fill {
+    height: 12;
+    background-color: #4CAF50;
+    border-radius: 6;
+    horizontal-align: left;
+}
+
+.stats-grid-step {
+    margin: 20 0;
+}
+
+.stat-card {
+    background-color: white;
+    padding: 15;
+    margin: 5;
+    border-radius: 12;
+    elevation: 2;
+    android-elevation: 2;
+    horizontal-align: center;
+}
+
+.stat-icon-step {
+    font-size: 36;
+    text-align: center;
+    margin-bottom: 8;
+}
+
+.stat-value-step {
+    font-size: 20;
+    font-weight: bold;
+    color: #2c3e50;
+    text-align: center;
+}
+
+.stat-label-step {
+    font-size: 11;
+    color: #7f8c8d;
+    text-align: center;
+    margin-top: 5;
+}
+
+.chart-section {
+    background-color: white;
+    padding: 20;
+    border-radius: 16;
+    elevation: 2;
+    android-elevation: 2;
+    margin-bottom: 15;
+}
+
+.chart-scroll {
+    margin-top: 15;
+}
+
+.chart-container {
+    padding: 10;
+}
+
+.chart-bar-container {
+    padding: 10;
+    horizontal-align: center;
+    vertical-align: bottom;
+}
+
+.chart-bar {
+    width: 40;
+    background-color: #4CAF50;
+    border-radius: 4;
+    margin-bottom: 5;
+}
+
+.chart-value {
+    font-size: 11;
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 3;
+}
+
+.chart-label {
+    font-size: 12;
+    color: #7f8c8d;
+    text-align: center;
+}
+
+.control-buttons {
+    margin: 15 0;
+}
+
+.btn-start {
+    background-color: #4CAF50;
+    color: white;
+    font-size: 18;
+    font-weight: bold;
+    padding: 15;
+    border-radius: 12;
+    margin: 5;
+}
+
+.btn-stop {
+    background-color: #f44336;
+    color: white;
+    font-size: 18;
+    font-weight: bold;
+    padding: 15;
+    border-radius: 12;
+    margin: 5;
+}
+
+.btn-reset {
+    background-color: #FF9800;
+    color: white;
+    font-size: 18;
+    font-weight: bold;
+    padding: 15;
+    border-radius: 12;
+    margin: 5;
+}
+
+.status-message {
+    font-size: 14;
+    color: #7f8c8d;
+    text-align: center;
+    padding: 15;
+    background-color: white;
+    border-radius: 12;
+    elevation: 1;
+    android-elevation: 1;
+}
+
+/* ========================
+   AI Chat Styles
+   ======================== */
+
+.chat-container {
+    background-color: #f5f7fa;
+}
+
+.info-banner {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 15 20;
+}
+
+.info-banner-title {
+    font-size: 18;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 5;
+}
+
+.info-banner-text {
+    font-size: 12;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.chat-messages-scroll {
+    background-color: #f5f7fa;
+}
+
+.chat-messages {
+    padding: 15;
+}
+
+.message-user {
+    background-color: #4CAF50;
+    padding: 12 15;
+    margin-bottom: 10;
+    border-radius: 16 16 4 16;
+    max-width: 80%;
+    horizontal-align: right;
+}
+
+.message-ai {
+    background-color: white;
+    padding: 12 15;
+    margin-bottom: 10;
+    border-radius: 16 16 16 4;
+    max-width: 80%;
+    horizontal-align: left;
+    elevation: 1;
+    android-elevation: 1;
+}
+
+.message-icon {
+    font-size: 20;
+    margin-bottom: 5;
+}
+
+.message-text {
+    font-size: 15;
+    color: white;
+    line-height: 1.4;
+}
+
+.message-ai .message-text {
+    color: #2c3e50;
+}
+
+.message-time {
+    font-size: 11;
+    color: rgba(255, 255, 255, 0.7);
+    margin-top: 5;
+}
+
+.message-ai .message-time {
+    color: #95a5a6;
+}
+
+.loading-container {
+    padding: 20;
+    horizontal-align: center;
+}
+
+.loading-spinner {
+    width: 40;
+    height: 40;
+    color: #4CAF50;
+}
+
+.loading-text {
+    font-size: 14;
+    color: #7f8c8d;
+    text-align: center;
+    margin-top: 10;
+}
+
+.empty-state {
+    padding: 40 20;
+    horizontal-align: center;
+    vertical-align: center;
+}
+
+.empty-icon {
+    font-size: 64;
+    text-align: center;
+    margin-bottom: 15;
+}
+
+.empty-title {
+    font-size: 20;
+    font-weight: bold;
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 10;
+}
+
+.empty-subtitle {
+    font-size: 14;
+    color: #7f8c8d;
+    text-align: center;
+    line-height: 1.4;
+}
+
+.input-section {
+    background-color: white;
+    padding: 10 15;
+    border-top-width: 1;
+    border-top-color: #e0e0e0;
+}
+
+.message-input {
+    background-color: #f8f9fa;
+    padding: 12 15;
+    border-radius: 25;
+    border-width: 1;
+    border-color: #e0e0e0;
+    font-size: 15;
+    margin-right: 10;
+}
+
+.btn-send {
+    background-color: #4CAF50;
+    color: white;
+    font-size: 16;
+    font-weight: bold;
+    padding: 12 20;
+    border-radius: 25;
+    min-width: 80;
+}
+
+.chart-bar {
+    transition: height 0.5s ease;
 }

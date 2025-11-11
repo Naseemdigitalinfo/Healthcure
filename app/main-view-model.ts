@@ -1,38 +1,27 @@
-import { Observable } from '@nativescript/core'
+import { Observable, EventData, Page } from '@nativescript/core';
 
-export class HelloWorldModel extends Observable {
-  private _counter: number
-  private _message: string
-
-  constructor() {
-    super()
-
-    // Initialize default values.
-    this._counter = 42
-    this.updateMessage()
-  }
-
-  get message(): string {
-    return this._message
-  }
-
-  set message(value: string) {
-    if (this._message !== value) {
-      this._message = value
-      this.notifyPropertyChange('message', value)
+export class MainViewModel extends Observable {
+    constructor() {
+        super();
     }
-  }
+}
 
-  onTap() {
-    this._counter--
-    this.updateMessage()
-  }
+export function navigatingTo(args: EventData) {
+    const page = <Page>args.object;
+    page.bindingContext = new MainViewModel();
+}
 
-  private updateMessage() {
-    if (this._counter <= 0) {
-      this.message = 'Hoorraaay! You unlocked the NativeScript clicker achievement!'
-    } else {
-      this.message = `${this._counter} taps left`
-    }
-  }
+export function onDoctorBookingTap(args: EventData) {
+    const page = (<any>args.object).page;
+    page.frame.navigate('pages/doctor-booking/doctor-booking-page');
+}
+
+export function onStepCounterTap(args: EventData) {
+    const page = (<any>args.object).page;
+    page.frame.navigate('pages/step-counter/step-counter-page');
+}
+
+export function onAIChatTap(args: EventData) {
+    const page = (<any>args.object).page;
+    page.frame.navigate('pages/ai-chat/ai-chat-page');
 }
